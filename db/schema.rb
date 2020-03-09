@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_03_06_224252) do
     t.integer "user_id"
     t.integer "sent_by"
     t.integer "event_id"
-    t.boolean "is_accepted"
+    t.boolean "is_accepted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

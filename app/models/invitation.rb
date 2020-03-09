@@ -4,5 +4,5 @@ class Invitation < ApplicationRecord
 
   belongs_to :invitor, class_name: 'User', foreign_key: :sent_by
   belongs_to :event
-  belongs_to :user, as: 'invited'
+  belongs_to :invited, foreign_key: :user_id, class_name: 'User'
 end

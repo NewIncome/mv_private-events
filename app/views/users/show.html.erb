@@ -1,9 +1,29 @@
-<h1 class="col-4 mx-auto text-center font-weight-bold"><%= @user.username %></h1>
-<h2 class="col-4 mx-auto text-center font-weight-bold">has created <%= pluralize(@user.created_events.count, 'event') %></h2>
-<% @user.created_events.find_each do |event| %>
-  <ul class="wrapper col-4 mx-auto mb-3 list-group">
-    <li class="list-group-item font-weight-bold"><%= event.name.upcase %></li>
-    <li class="list-group-item"><%= event.date %></li>
-    <li class="list-group-item"><%= event.description %></li>
-  </ul>
-<% end %>
+<div class="row">
+  <h1 class="col-12 mx-auto text-center font-weight-bold"><%= @user.username %></h1>
+  <div class="col-6">
+    <h2 class="col-12 mx-auto text-center font-weight-bold">has created <%= pluralize(@user.created_events.count, 'event') %></h2>
+    <% @user.created_events.find_each do |event| %>
+      <%= link_to event_path(event), class: 'text-decoration-none text-dark' do %>
+        <ul class="wrapper col-10 mx-auto mb-3 list-group fl-card">
+        <li class="list-group-item p-0"><%= image_tag event.image, class: 'card-img-top m-0 p-0' %></li>
+        <li class="list-group-item font-weight-bold"><%= event.name.upcase %></li>
+        <li class="list-group-item"><%= event.date %></li>
+        <li class="list-group-item"><%= event.description %></li>
+      </ul>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-6">
+    <h2 class="col-12 mx-auto text-center font-weight-bold">has been invited to <%= pluralize(@user.attended_events.count, 'event') %></h2>
+    <% @user.attended_events.find_each do |event| %>
+      <%= link_to event_path(event), class: 'text-decoration-none text-dark' do %>
+        <ul class="wrapper col-10 mx-auto mb-3 list-group fl-card">
+        <li class="list-group-item p-0"><%= image_tag event.image, class: 'card-img-top m-0 p-0' %></li>
+        <li class="list-group-item font-weight-bold"><%= event.name.upcase %></li>
+        <li class="list-group-item"><%= event.date %></li>
+        <li class="list-group-item"><%= event.description %></li>
+      </ul>
+      <% end %>
+    <% end %>
+  </div>
+</div>

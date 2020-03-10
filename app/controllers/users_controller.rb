@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user?, only: %i[login]
+
   def new
     @user = User.new
   end
@@ -42,5 +44,12 @@ class UsersController < ApplicationController
 
   def logout
     session.clear
+    redirect_to root_path
+  end
+
+  def logged_in_user?
+    return nil if session[:id].nil?
+
+    redirect_to events_path
   end
 end

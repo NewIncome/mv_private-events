@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :logged_in?, only: %i[create new]
+  before_action :logged_in_user?, only: %i[create new]
 
   def index
     @events = Event.all.includes(:creator).order(created_at: :desc)
@@ -34,5 +34,12 @@ class EventsController < ApplicationController
       :description,
       :image
     )
+  end
+
+  def logged_in_user?
+    return nil unless session[:id].nil?
+
+    flash[:danger] = 'You need to be logeed in to post new events'
+    redirect_to login_path
   end
 end

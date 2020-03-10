@@ -7,18 +7,18 @@
       <%= link_to  "Private Events", '/', class: "navbar-brand text-light" %>
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
-          <a class="nav-link text-light" href="#">Link</a>
+          <%= link_to  "Events", events_path, class: 'nav-link text-light' %>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#">Link</a>
+          <%= link_to  "Events", events_path, class: 'nav-link text-light' %>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#">Link</a>
+          <%= link_to  "Events", events_path, class: 'nav-link text-light' %>
         </li>
       </ul>
       <% if logged_in? %>
-        <%= link_to 'Logout', logout_path, class: "btn btn-outline-light my-2 my-sm-0" %>
         <%= link_to 'Post', new_event_path, class: "btn btn-outline-light my-2 my-sm-0" %>
+        <%= link_to 'Logout', logout_path, method: :delete, class: "btn btn-outline-light my-2 my-sm-0" %>
       <% else %>
         <%= link_to 'Login', login_path, class: "btn btn-outline-light my-2 my-sm-0" %>
       <% end %>

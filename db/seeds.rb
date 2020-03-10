@@ -13,19 +13,14 @@ User.create(
   password_confirmation: '123lol'
 )
 
-User.create(
-  username: 'Alfredo',
-  email: 'alfredo@gmail.com',
-  password: '123lol',
-  password_confirmation: '123lol'
-)
-
-User.create(
-  username: 'Benjamin',
-  email: 'benjamin@gmail.com',
-  password: '123lol',
-  password_confirmation: '123lol'
-)
+100.times do |time|
+  User.create(
+    username: Faker::Name.name,
+    email: "user-#{time}@gmail.com",
+    password: '123lol',
+    password_confirmation: '123lol'
+  )
+end
 
 15.times do
   Event.create(
@@ -37,8 +32,10 @@ User.create(
   )
 end
 
-Invitation.create(
-  user_id: User.third.id,
-  sent_by: User.second.id,
-  event_id: Event.first.id
-)
+100.times do |time|
+  Invitation.create(
+    user_id: Random.rand(1..100),
+    sent_by: Random.rand(1..100),
+    event_id: Random.rand(1..15)
+  )
+end

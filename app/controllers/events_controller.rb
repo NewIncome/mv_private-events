@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
+  before_action :logged_in?, only: %i[create new]
+
   def index
-    @events = Event.all.where('creator_id = 2').includes(:creator)
+    @events = Event.all.includes(:creator).order(created_at: :desc)
   end
 
   def show
@@ -12,7 +14,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
+    @event = User.find_by(id: session[:id]).created_events.build(event_params)
     if @event.save
       flash[:success] = 'Event successfully created'
       redirect_to @event

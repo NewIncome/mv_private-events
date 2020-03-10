@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :events, only: %i[show index new create]
   get '/login', to: 'users#login'
   post '/login', to: 'users#backlog'
+  delete '/logout', to: "users#logout"
   # post '/login', to: 'user#session'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # root 'users#login'

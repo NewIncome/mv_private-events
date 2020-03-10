@@ -1,2 +1,8 @@
 <h1>Hi! <%= @user.username %></h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% @user.created_events.find_each do |event| %>
+  <ul class="wrapper col-4 mx-auto mb-3 list-group">
+    <li class="list-group-item font-weight-bold"><%= event.name.upcase %></li>
+    <li class="list-group-item"><%= event.date %></li>
+    <li class="list-group-item"><%= event.description %></li>
+  </ul>
+<% end %>

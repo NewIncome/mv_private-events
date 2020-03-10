@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def backlog
     user = User.find_by(email: params[:session][:email])
     if user.nil?
-      flash[:danger] = "User doesn't exist"
+      flash.now[:danger] = "User doesn't exist"
       render :login
     else
       flash[:success] = 'logged in'

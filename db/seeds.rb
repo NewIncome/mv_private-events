@@ -27,12 +27,14 @@ User.create(
   password_confirmation: '123lol'
 )
 
-Event.create(
-  creator_id: User.first.id,
-  date: Time.now + 5.days,
-  name: 'the big party',
-  description: 'this is party so big, it describes itself'
-)
+15.times do
+  Event.create(
+    creator_id: Random.rand(1..3),
+    date: Faker::Date.between(from: 7.days.from_now, to: 1.month.from_now),
+    name: Faker::Name.name + "'s Birthday",
+    description: Faker::Lorem.sentence(word_count: 6)
+  )
+end
 
 Invitation.create(
   user_id: User.third.id,

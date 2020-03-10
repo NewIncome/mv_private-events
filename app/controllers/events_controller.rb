@@ -1,10 +1,10 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    @events = Event.all.where('creator_id = 2').includes(:creator)
   end
 
   def show
-    @event = Event.find_by(id: params[:id])
+    @event = Event.where(id: params[:id]).includes(:creator).take
   end
 
   def new

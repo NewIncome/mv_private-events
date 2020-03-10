@@ -1,3 +1,7 @@
+<% if !@user.nil? && @user.errors.any? %>
+  <% @user.errors.full_messages.each do |message| %>
+  <% end %>
+<% end %>
 <%= form_with scope: :session, url: login_path, html: {class: 'col-3 mx-auto rounded border border-light py-3 my-2 bg-dark'} do |f| %>
   <%= f.label :email, { class: 'text-light' } %>
   <%= f.email_field :email, { class: 'form-control-plaintext border border-light rounded pl-3 text-light mb-3' } %>

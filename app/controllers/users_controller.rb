@@ -20,14 +20,14 @@ class UsersController < ApplicationController
   def login; end
 
   def backlog
-    user = User.find_by(email: params[:session][:email])
-    if user.nil?
+    @user = User.find_by(email: params[:session][:email])
+    if @user.nil?
       flash.now[:danger] = "User doesn't exist"
       render :login
     else
       flash[:success] = 'logged in'
-      session[:id] = user.id
-      redirect_to user
+      session[:id] = @user.id
+      redirect_to @user
     end
   end
 

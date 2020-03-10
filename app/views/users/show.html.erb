@@ -1,4 +1,5 @@
-<h1>Hi! <%= @user.username %></h1>
+<h1 class="col-4 mx-auto text-center font-weight-bold"><%= @user.username %></h1>
+<h2 class="col-4 mx-auto text-center font-weight-bold">has created <%= pluralize(@user.created_events.count, 'event') %></h2>
 <% @user.created_events.find_each do |event| %>
   <ul class="wrapper col-4 mx-auto mb-3 list-group">
     <li class="list-group-item font-weight-bold"><%= event.name.upcase %></li>

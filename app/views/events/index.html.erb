@@ -1,7 +1,7 @@
 <div class="row m-3 p-3">
   <% @events.each do |event| %>
-    <%= link_to event_path(event), class: 'col-3 mb-3' do%>
-      <ul class="list-group">
+    <%= link_to event_path(event), class: 'col-3 mb-3 text-decoration-none text-dark' do%>
+      <ul class="list-group h-100">
         <li class="list-group-item p-0"><%= image_tag event.image, class: 'card-img-top m-0 p-0' %></li>
         <li class="list-group-item font-weight-bold bg-dark text-light"><%= event.name %></li>
         <li class="list-group-item"><strong>Organizer:</strong> <%= event.creator.username %></li>

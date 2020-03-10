@@ -1,0 +1,12 @@
+<%= form_with model:@event, html: { class: 'col-3 mx-auto rounded border border-light pw-3 mw-2 bg-dark text-light' } do |f| %>
+  <%= f.label :creator_id, "Creator" %>
+  <%= f.number_field :creator_id, in: (1..3), step: :any, class: 'form-control-plain-text border border-light rounded pl-3 mb-3' %>
+  <%= f.label :name, 'Event Name' %>
+  <%= f.text_field :name, class: 'form-control-plain-text border border-light rounded pl-3 mb-3' %>
+  <%= f.label :date, 'Date' %>
+  <%= f.text_field :date, class: 'form-control-plain-text border border-light rounded pl-3 mb-3' %>
+  <%= f.label :description %>
+  <%= f.text_area :description, class: 'form-control-plain-text border border-light rounded pl-3 mb-3' %>
+
+  <%= f.submit class: 'btn btn-secondary' %>
+<% end %>

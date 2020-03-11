@@ -2,6 +2,8 @@ class Event < ApplicationRecord
   belongs_to :creator, class_name: 'User'
   has_many :invitations, dependent: :destroy
   has_many :attendees, through: :invitations, source: 'invited'
+  scope :upcoming, -> { where("date > ?", Time.now) }
+  scope :previous, -> { where("date < ?", Time.now) }
 
   has_many :accepted_invitations, -> { accepted }, class_name: 'Invitation'
   has_many :pending_invitations, -> { pending }, class_name: 'Invitation'

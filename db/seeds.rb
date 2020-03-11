@@ -25,7 +25,7 @@ end
 15.times do
   Event.create(
     creator_id: Random.rand(1..3),
-    date: Faker::Date.between(from: 7.days.from_now, to: 1.month.from_now),
+    date: Faker::Date.between(from: 14.days.ago, to: 14.days.from_now),
     name: Faker::Name.name + "'s Birthday",
     description: Faker::Lorem.sentence(word_count: 6),
     image: "https://picsum.photos/id/#{Random.rand(1..300)}/437/226"

@@ -14,8 +14,8 @@
     <% end %>
   </div>
   <div class="col-6">
-    <h2 class="col-12 mx-auto text-center font-weight-bold">has been invited to <%= pluralize(@user.attended_events.count, 'event') %></h2>
-    <% @user.attended_events.find_each do |event| %>
+    <h2 class="col-12 mx-auto text-center font-weight-bold">has <%= pluralize(@user.attended_events.upcoming.count, 'upcoming event') %></h2>
+    <% @user.attended_events.upcoming.find_each do |event| %>
       <%= link_to event_path(event), class: 'text-decoration-none text-dark' do %>
         <ul class="wrapper col-10 mx-auto mb-3 list-group fl-card">
         <li class="list-group-item p-0"><%= image_tag event.image, class: 'card-img-top m-0 p-0' %></li>
@@ -25,5 +25,8 @@
       </ul>
       <% end %>
     <% end %>
+    <h2 class="col-12 mx-auto text-center font-weight-bold">has <%= pluralize(@user.attended_events.previous.count, 'previous event') %></h2>
+      <%= render @user.attended_events %>
+      
   </div>
 </div>

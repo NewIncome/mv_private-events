@@ -18,6 +18,7 @@
       </ul>
       <% if logged_in? %>
         <%= link_to 'Post', new_event_path, class: "btn btn-outline-light my-2 my-sm-0" %>
+        <%= link_to 'Profile', user_path(current_user), class: "btn btn-outline-light my-2 my-sm-0" %>
         <%= link_to 'Logout', logout_path, method: :delete, class: "btn btn-outline-light my-2 my-sm-0" %>
       <% else %>
         <%= link_to 'Login', login_path, class: "btn btn-outline-light my-2 my-sm-0" %>

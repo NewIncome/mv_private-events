@@ -5,23 +5,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <%= link_to  "Private Events", '/', class: "navbar-brand text-light" %>
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <%= link_to  "Events", events_path, class: 'nav-link text-light' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to  "Events", events_path, class: 'nav-link text-light' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to  "Events", events_path, class: 'nav-link text-light' %>
-        </li>
-      </ul>
       <% if logged_in? %>
-        <%= link_to 'Post', new_event_path, class: "btn btn-outline-light my-2 my-sm-0" %>
-        <%= link_to 'Profile', user_path(current_user), class: "btn btn-outline-light my-2 my-sm-0" %>
-        <%= link_to 'Logout', logout_path, method: :delete, class: "btn btn-outline-light my-2 my-sm-0" %>
+        <div class="rightside ml-auto">
+          <%= link_to "Events", events_path, class: 'btn btn-outline-light my-2 my-sm-0 mr-1' %>
+          <%= link_to 'Post', new_event_path, class: "btn btn-outline-light my-2 my-sm-0 mr-1" %>
+          <%= link_to 'Profile', user_path(current_user), class: "btn btn-outline-light my-2 my-sm-0 mr-1" %>
+          <%= link_to 'Logout', logout_path, method: :delete, class: "btn btn-outline-light my-2 my-sm-0 mr-1" %>
+        </div>
       <% else %>
-        <%= link_to 'Login', login_path, class: "btn btn-outline-light my-2 my-sm-0" %>
+        <%= link_to 'Login', login_path, class: "btn btn-outline-light my-2 my-sm-0 ml-auto" %>
       <% end %>
     </div>
   </nav>

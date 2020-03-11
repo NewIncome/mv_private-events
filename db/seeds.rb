@@ -28,14 +28,26 @@ end
     date: Faker::Date.between(from: 14.days.ago, to: 14.days.from_now),
     name: Faker::Name.name + "'s Birthday",
     description: Faker::Lorem.sentence(word_count: 6),
-    image: "https://picsum.photos/id/#{Random.rand(1..300)}/437/226"
+    image: "https://picsum.photos/id/#{Random.rand(1..100)}/437/226?blur=5"
   )
 end
 
-100.times do |time|
-  Invitation.create(
-    user_id: Random.rand(1..100),
-    sent_by: Random.rand(1..100),
-    event_id: Random.rand(1..15)
-  )
+def different_number(options = {})
+  dif_num = Random.rand(options[:min]..options[:max])
+  return dif_num if dif_num != options[:than]
+
+  different_number(options[:than], options[:min], options[:max])
+end
+
+15.times do |party|
+  Faker::Number.unique.clear
+  Random.rand(5..20).times do |_time|
+    invitee = Faker::Number.unique.between(from: 1, to: 100)
+    invitor = different_number(than: invitee, min: 1, max: 100)
+    Invitation.create(
+      user_id: invitee,
+      sent_by: invitor,
+      event_id: party
+    )
+  end
 end

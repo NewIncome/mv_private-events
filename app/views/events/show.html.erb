@@ -2,7 +2,7 @@
   <li class="list-group-item p-0"><%= image_tag @event.image, class: 'card-img-top m-0 p-0' %></li>
   <li class="list-group-item font-weight-bold bg-dark text-light"><%= @event.name %></li>
   <li class="list-group-item"><strong>Organizer:</strong> <%= link_to @event.creator.username, user_path(@event.creator) %></li>
-  <li class="list-group-item"><strong>Date:</strong> <%= @event.date %></li>
+  <li class="list-group-item"><strong>Date: </strong><%= @event.date.strftime('%d/%B/%y') %></li>
   <li class="list-group-item flex-grow-1"><strong>Description:</strong> <%= @event.description %></li>
   <li class="list-group-item flex-grow-1">
     <strong>Attendees: </strong>

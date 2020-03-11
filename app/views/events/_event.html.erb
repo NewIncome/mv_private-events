@@ -1,10 +1,10 @@
 <%# <% @user.attended_events.@timing.find_each do |event| %>
-  <%= link_to event_path(event), class: 'text-decoration-none text-dark' do %>
-    <ul class="wrapper col-10 mx-auto mb-3 list-group fl-card">
+  <%= link_to event_path(event), class: 'text-decoration-none text-dark d-flex' do %>
+    <ul class="wrapper col-10 mx-auto mb-3 pr-0 list-group fl-card ">
     <li class="list-group-item p-0"><%= image_tag event.image, class: 'card-img-top m-0 p-0' %></li>
     <li class="list-group-item font-weight-bold"><%= event.name.upcase %></li>
-    <li class="list-group-item"><%= event.date %></li>
-    <li class="list-group-item"><%= event.description %></li>
+    <li class="list-group-item"><strong>Date: </strong><%= event.date.strftime('%d/%B/%y') %></li>
+    <li class="list-group-item flex-grow-1"><%= event.description %></li>
   </ul>
   <% end %>
 <%# <% end %>

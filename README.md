@@ -1,6 +1,6 @@
 # _Private events_
 
-> On this project we made a site were you can create events, invitations to said events, and see a full list of all the events past and upcomming. 
+> On this project we made a site where you can create events, invitations to said events, and see a full list of all the events past and upcoming. 
 
 ## Index
 ![image](https://i.imgur.com/ANc81bV.png)
@@ -13,7 +13,7 @@
   - User:
     - Can post events
     - Can make invitations
-    - Can recieve invitations
+    - Can receive invitations
     - Has many attended_events
     - Has many created_events
     - Has many created_invitations
@@ -37,21 +37,29 @@ To clone do:
   ```
   $ git clone git@github.com:NewIncome/mv_private-events.git
   ```
-- Checkout to the correct branch (this depends on what are you testing, exp: develop, feature/_your desired feature_, etc.):
+- cd into the new folder:
   ```
-  $ git checkout _your desired branch_
+  $ cd mv_private-events
   ```
-- bundle the necesary gems
+- Checkout to the correct branch (for this review *_ft/models_*):
+  ```
+  $ git checkout *_ft/models_*
+  ```
+- bundle the necessary gems
   ```
   $ bundle
   ```
-- yarn the necesary packages
+- yarn the necessary packages
   ```
   $ yarn install --check-files
   ```
 - migrate and seed
   ```
   $ rails db:migrate db:seed
+  ```
+- launch the developer server
+  ```
+  $ rails s
   ```
 - Loggin with this credentials
   ```

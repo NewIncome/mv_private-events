@@ -9,6 +9,7 @@
         <div class="rightside ml-auto">
           <%= link_to "Events", events_path, class: 'btn btn-outline-light my-2 my-sm-0 mr-1' %>
           <%= link_to 'Post', new_event_path, class: "btn btn-outline-light my-2 my-sm-0 mr-1" %>
+          <%= link_to 'Invite', new_invitation_path, class: "btn btn-outline-light my-2 my-sm-0 mr-1" %>
           <%= link_to 'Profile', user_path(current_user), class: "btn btn-outline-light my-2 my-sm-0 mr-1" %>
           <%= link_to 'Logout', logout_path, method: :delete, class: "btn btn-outline-light my-2 my-sm-0 mr-1" %>
         </div>

@@ -10,16 +10,14 @@
       <thead>
         <tr>
           <th scope='col'>Name</th>
-          <th scope='col'>Confirmed</th>
           <th scope='col'>profile</th>
         </tr>
       </thead>
       <tbody>
-        <% @event.invitations.each do |invitation| %>
+        <% @event.attendees.each do |atendee| %>
           <tr>
-            <th scope="row"><%= invitation.invited.username %></th>
-            <td><%= invitation.is_accepted %></td>
-            <td><%= link_to 'profile', user_path(invitation.invited) %></td>
+            <th scope="row"><%= atendee.username %></th>
+            <td><%= link_to 'profile', user_path(atendee) %></td>
           </tr>
         <% end %>
       </tbody>

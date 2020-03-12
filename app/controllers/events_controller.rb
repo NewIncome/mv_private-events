@@ -14,7 +14,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = User.find_by(id: session[:id]).created_events.build(event_params)
+    @event = helpers.current_user.created_events.build(event_params)
     if @event.save
       flash[:success] = 'Event successfully created'
       redirect_to @event

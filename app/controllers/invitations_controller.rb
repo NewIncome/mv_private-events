@@ -1,12 +1,15 @@
 class InvitationsController < ApplicationController
   def new
     @invitation = Invitation.new
+    @users = User.all.order('username').map{ |user| [user.username, user.id] }
+    @events = Event.all.order('name').map{ |event| [event.name, event.id] }
   end
 
   def create
-    @invitation = Invitation.new(invitation_params)
+    @invitation = helpers.current_user.created_invitations.build(invitation_params)
 
     if @invitation.save
+      flash[:success] = "#{@invitation.invitee.username} was invited!"
       redirect_to @invitation.event
     else
       flash[:danger] = 'failed to save invitation'

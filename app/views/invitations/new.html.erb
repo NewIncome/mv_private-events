@@ -1,7 +1,7 @@
-<%= form_with model: @invitation, url: login_path, html: {class: 'col-3 mx-auto rounded border border-light py-3 my-2 bg-dark'} do |f| %>
-  <%= f.label :user_id, { class: 'text-light' } %>
-  <%= f.number_field :user_id, min:1, max:3, class: 'form-control-plaintext border border-light rounded pl-3 text-light mb-3'%>
-  <%= f.label :user_id, { class: 'text-light' } %>
-  <%= f.text_field :user_id, { class: 'form-control-plaintext border border-light rounded pl-3 text-light mb-3' } %>
+<%= form_with model: @invitation, html: {class: 'col-3 mx-auto rounded border border-light py-3 my-2 bg-dark'} do |f| %>
+  <%= f.label :user_id, 'Invitee', { class: 'text-light' } %>
+  <%= f.select :user_id, options_for_select(@users), {}, { class: 'form-control-plaintext border border-light rounded pl-3 text-light mb-3' } %>
+  <%= f.label :event_id, 'Event', { class: 'text-light' } %>
+  <%= f.select :event_id, options_for_select(@events), {}, { class: 'form-control-plaintext border border-light rounded pl-3 text-light mb-3' } %>
   <%= f.submit class: 'btn btn-secondary' %>
 <% end %>

@@ -1,8 +1,10 @@
 class InvitationsController < ApplicationController
+  before_action :logged_in_user?, only: %i[create new]
+
   def new
     @invitation = Invitation.new
-    @users = User.all.order('username').map{ |user| [user.username, user.id] }
-    @events = Event.all.order('name').map{ |event| [event.name, event.id] }
+    @users = User.all.order('username').map { |user| [user.username, user.id] }
+    @events = Event.all.order('name').map { |event| [event.name, event.id] }
   end
 
   def create

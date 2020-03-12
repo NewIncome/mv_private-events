@@ -1,6 +1,6 @@
 <div class="row">
-  <h1 class="col-12 text-center">Upcoming <%= pluralize(@events.upcoming.count, "events") %></h1>
+  <h1 class="col-12 text-center font-weight-bold mb-3"><%= pluralize(@events.upcoming.count, "Upcomming events") %></h1>
   <%= render  @events.upcoming %>
-  <h1 class="col-12 text-center">Previous <%= pluralize(@events.previous.count, "events") %></h1>
+  <h1 class="col-12 text-center font-weight-bold mb-3"><%= pluralize(@events.previous.count, "Previous events") %></h1>
   <%= render  @events.previous %>
 </div>

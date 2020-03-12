@@ -1,23 +1,23 @@
 <ul class="list-group h-100 col-8 mb-3 mx-auto text-decoration-none text-dark">
   <li class="list-group-item p-0"><%= image_tag @event.image, class: 'card-img-top m-0 p-0' %></li>
-  <li class="list-group-item font-weight-bold bg-dark text-light"><%= @event.name %></li>
-  <li class="list-group-item"><strong>Organizer:</strong> <%= link_to @event.creator.username, user_path(@event.creator) %></li>
-  <li class="list-group-item"><strong>Date: </strong><%= @event.date.strftime('%d/%B/%y') %></li>
-  <li class="list-group-item flex-grow-1"><strong>Description:</strong> <%= @event.description %></li>
-  <li class="list-group-item flex-grow-1">
+  <li class="list-group-item font-weight-bold bg-light"><%= @event.name %></li>
+  <li class="list-group-item bg-dark text-light"><strong>Organizer:</strong> <%= link_to @event.creator.username, user_path(@event.creator) %></li>
+  <li class="list-group-item bg-dark text-light"><strong>Date: </strong><%= @event.date.strftime('%d/%B/%y') %></li>
+  <li class="list-group-item flex-grow-1 bg-dark text-light"><strong>Description:</strong> <%= @event.description %></li>
+  <li class="list-group-item flex-grow-1 bg-dark text-light">
     <strong>Attendees: </strong>
     <table class="table mt-3">
       <thead>
         <tr>
-          <th scope='col'>Name</th>
-          <th scope='col'>profile</th>
+          <th scope='col' class ="text-light font-weight-bold">Name</th>
+          <th scope='col'class ="text-light font-weight-bold">profile</th>
         </tr>
       </thead>
       <tbody>
         <% @event.attendees.each do |atendee| %>
           <tr>
-            <th scope="row"><%= atendee.username %></th>
-            <td><%= link_to 'profile', user_path(atendee) %></td>
+            <th scope="row" class="text-light"><%= atendee.username %></th>
+            <td><u><%= link_to 'profile', user_path(atendee), class: 'text-light'%></u></td>
           </tr>
         <% end %>
       </tbody>

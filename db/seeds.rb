@@ -36,7 +36,7 @@ def different_number(options = {})
   dif_num = Random.rand(options[:min]..options[:max])
   return dif_num if dif_num != options[:than]
 
-  different_number(options[:than], options[:min], options[:max])
+  different_number(than: options[:than],min: options[:min],max: options[:max])
 end
 
 15.times do |party|

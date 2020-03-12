@@ -11,6 +11,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @events = Event.all.order(:name).map { |event| [event.name, event.id] }
   end
 
   def create
@@ -34,12 +35,5 @@ class EventsController < ApplicationController
       :description,
       :image
     )
-  end
-
-  def logged_in_user?
-    return nil unless session[:id].nil?
-
-    flash[:danger] = 'You need to be logeed in to post new events'
-    redirect_to login_path
   end
 end

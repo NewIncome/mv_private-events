@@ -22,13 +22,17 @@ User.create(
   )
 end
 
-15.times do
-  Event.create(
+15.times do |time|
+  event = Event.create(
     creator_id: Random.rand(1..3),
     date: Faker::Date.between(from: 14.days.ago, to: 14.days.from_now),
     name: Faker::Name.name + "'s Birthday",
-    description: Faker::Lorem.sentence(word_count: 6),
-    image: "https://picsum.photos/id/#{Random.rand(1..100)}/437/226?blur=5"
+    description: Faker::Lorem.sentence(word_count: 6)
+  )
+
+  event.image.attach(
+    io: File.open("./app/assets/images/"),
+    filename: 'file.jpg'
   )
 end
 

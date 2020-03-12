@@ -4,4 +4,6 @@ class Event < ApplicationRecord
   has_many :attendees, through: :invitations, source: 'invitee'
   scope :upcoming, -> { where('date > ?', Time.now) }
   scope :previous, -> { where('date < ?', Time.now) }
+
+  has_one_attached :image
 end

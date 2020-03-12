@@ -1,5 +1,5 @@
 <ul class="list-group h-100 col-8 mb-3 mx-auto text-decoration-none text-dark">
-  <li class="list-group-item p-0"><%= image_tag @event.image, class: 'card-img-top m-0 p-0' %></li>
+  <li class="list-group-item p-0"><%= image_tag url_for(@event.image), class: 'card-img-top m-0 p-0' %></li>
   <li class="list-group-item font-weight-bold bg-light"><%= @event.name %></li>
   <li class="list-group-item bg-dark text-light"><strong>Organizer:</strong> <%= link_to @event.creator.username, user_path(@event.creator) %></li>
   <li class="list-group-item bg-dark text-light"><strong>Date: </strong><%= @event.date.strftime('%d/%B/%y') %></li>

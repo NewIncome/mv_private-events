@@ -17,3 +17,8 @@ html,
 body{
   height: 100%;
 }
+
+.index ul > li {
+  max-height: 226px;
+  overflow: hidden;
+}

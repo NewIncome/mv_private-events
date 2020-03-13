@@ -13,7 +13,7 @@ User.create(
   password_confirmation: '123lol'
 )
 
-100.times do |time|
+5.times do |time|
   User.create(
     username: Faker::Name.name,
     email: "user-#{time}@gmail.com",
@@ -22,7 +22,7 @@ User.create(
   )
 end
 
-15.times do |time|
+6.times do |time|
   event = Event.create(
     creator_id: Random.rand(1..3),
     date: Faker::Date.between(from: 14.days.ago, to: 14.days.from_now),
@@ -31,8 +31,7 @@ end
   )
 
   event.image.attach(
-    io: File.open("./app/assets/images/"),
-    filename: 'file.jpg'
+    io: open("https://source.unsplash.com/random"), filename: "file-#{time}.jpg"
   )
 end
 
@@ -43,7 +42,7 @@ def different_number(options = {})
   different_number(than: options[:than],min: options[:min],max: options[:max])
 end
 
-15.times do |party|
+3.times do |party|
   Faker::Number.unique.clear
   Random.rand(5..20).times do |_time|
     invitee = Faker::Number.unique.between(from: 1, to: 100)

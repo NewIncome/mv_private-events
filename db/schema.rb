@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_06_224252) do
+ActiveRecord::Schema.define(version: 2020_03_13_170406) do
 
   create_table "events", force: :cascade do |t|
     t.integer "creator_id"
@@ -29,6 +29,9 @@ ActiveRecord::Schema.define(version: 2020_03_06_224252) do
     t.boolean "is_accepted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_invitations_on_event_id"
+    t.index ["sent_by"], name: "index_invitations_on_sent_by"
+    t.index ["user_id"], name: "index_invitations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

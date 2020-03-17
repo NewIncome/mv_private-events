@@ -1,0 +1,19 @@
+.alert {
+  position: absolute !important;
+  top: 15px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.fl-card:hover {
+  box-shadow: -2px -1px 38px 24px rgba(0, 0, 0, 0.75);
+}
+
+option {
+  background: #343a40;
+}
+
+html,
+body{
+  height: 100%;
+}

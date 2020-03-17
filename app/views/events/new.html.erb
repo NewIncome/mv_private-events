@@ -1,0 +1,13 @@
+<%= form_with model:@event, html: { class: ' col-3 mx-auto rounded border border-light py-3 my-2 bg-dark text-light' } do |f| %>
+  <%# <%= f.label :creator_id, "Creator" %>
+  <%# <%= f.number_field :creator_id, {in: (1..3), step: :any, class: 'text-light form-control-plaintext border border-light rounded pl-3 mb-3'} %>
+  <%= f.label :image, "Image" %>
+  <%= f.text_field :image, {value: 'https://i.picsum.photos/id/55/437/226.jpg?grayscale ', placeholder: 'Choose a raw image url, like the ones from picsum.com',class: 'text-light form-control-plaintext border border-light rounded pl-3 mb-3'} %>
+  <%= f.label :name, 'Event name' %>
+  <%= f.text_field :name, { class: 'form-control-plaintext border border-light rounded pl-3 text-light mb-3' } %>
+  <%= f.label :date, 'Date' %>
+  <%= f.date_field :date, {class: 'text-light form-control-plaintext border border-light rounded pl-3 mb-3'} %>
+  <%= f.label :description %>
+  <%= f.text_area :description, {class: 'text-light form-control-plaintext border border-light rounded pl-3 mb-3' }%>
+  <%= f.submit class: 'btn btn-secondary' %>
+<% end %>

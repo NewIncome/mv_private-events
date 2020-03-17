@@ -1,0 +1,14 @@
+<div class="row">
+  <h1 class="col-12 mx-auto text-center font-weight-bold"><%= @user.username %></h1>
+  <div class="col-6">
+    <h2 class="col-12 mx-auto text-center font-weight-bold">has created <%= pluralize(@user.created_events.count, 'event') %></h2>
+    <%= render  @user.created_events %>
+  </div>
+  <div class="col-6">
+    <h2 class="col-12 mx-auto text-center font-weight-bold">has <%= pluralize(@user.attended_events.upcoming.count, 'upcoming event') %></h2>
+    <%= render  @user.attended_events.upcoming %>
+    <h2 class="col-12 mx-auto text-center font-weight-bold">has <%= pluralize(@user.attended_events.previous.count, 'previous event') %></h2>
+      <%= render @user.attended_events.previous %>
+      
+  </div>
+</div>
